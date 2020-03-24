@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="关于, 符忻潼博客">
-    <meta name="description" content="">
+    <meta name="keywords" content="关于, 忧郁的码农">
+    <meta name="description" content="路灯经过一夜的努力，才无愧地领受第一缕晨光的抚慰。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>关于 | 符忻潼博客</title>
+    <title>关于 | 忧郁的码农</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -41,7 +41,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">符忻潼博客</span>
+                    <span class="logo-span">忧郁的码农</span>
                 </a>
             </div>
             
@@ -117,10 +117,10 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">符忻潼博客</div>
+        <div class="logo-name">忧郁的码农</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            路灯经过一夜的努力，才无愧地领受第一缕晨光的抚慰。
             
         </div>
     </div>
@@ -272,13 +272,13 @@
         <div class="brand">
             <div class="title center-align">
                 
-                符忻潼博客
+                努力从码农变成码神
                 
             </div>
 
             <div class="description center-align">
                 
-                
+                路灯经过一夜的努力，才无愧地领受第一缕晨光的抚慰。
                 
             </div>
         </div>
@@ -287,8 +287,7 @@
 
 
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay() + '.jpg)');
+    $('.bg-cover').css('background-image', 'url(/medias/banner/6.jpg)');
 </script>
 
 
@@ -304,37 +303,57 @@
                     <div class="post-statis col l4 hide-on-med-and-down" data-aos="zoom-in-right">
                         
 <div class="statis">
-    <span class="count"><a href="/">8</a></span>
+    <span class="count"><a href="/">1</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
+<div class="statis">
+    <span class="count"><a href="/categories">1</a></span>
+    <span class="name">分类</span>
+</div>
 
+
+
+<div class="statis">
+    <span class="count"><a href="/tags">1</a></span>
+    <span class="name">标签</span>
+</div>
 
 
                     </div>
                     <div class="col s12 m12 l4">
                         <div class="profile center-align">
                             <div class="avatar">
-                                <img src="/medias/avatar.jpg" alt="fuxintong"
+                                <img src="/medias/avatar.jpg" alt="符忻潼"
                                      class="circle responsive-img avatar-img">
                             </div>
                             <div class="author">
                                 <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
                                     
 <div class="statis">
-    <span class="count"><a href="/">8</a></span>
+    <span class="count"><a href="/">1</a></span>
     <span class="name">文章</span>
 </div>
 
 
 
+<div class="statis">
+    <span class="count"><a href="/categories">1</a></span>
+    <span class="name">分类</span>
+</div>
 
+
+
+<div class="statis">
+    <span class="count"><a href="/tags">1</a></span>
+    <span class="name">标签</span>
+</div>
 
 
                                 </div>
-                                <div class="title">fuxintong</div>
+                                <div class="title">符忻潼</div>
                                 <div class="career">Software Engineer</div>
                                 <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
                                     
@@ -464,7 +483,7 @@
                 name: '文章篇数',
                 type: 'line',
                 color: ['#6772e5'],
-                data: [0,0,0,0,0,0,0,0,0,0,0,0,8],
+                data: [0,0,0,0,0,0,0,0,0,0,0,0,1],
                 markPoint: {
                     symbolSize: 45,
                     color: ['#fa755a','#3ecf8e','#82d3f4'],
@@ -506,7 +525,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [],
+                data: [{"name":"笔记","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -530,7 +549,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: []
+                data: ["java"]
             }
         ],
         yAxis: [
@@ -543,7 +562,7 @@
                 type: 'bar',
                 color: ['#82d3f4'],
                 barWidth : 18,
-                data: [],
+                data: [1],
                 markPoint: {
                     symbolSize: 45,
                     data: [{
@@ -710,6 +729,12 @@
         <div class="sub-title center-align"><i class="fa fa-book"></i>&nbsp;&nbsp;其他技能</div>
         <div class="tag-chips center-align">
             
+            
+            <a href="/tags/java/">
+                <span class="chip center-align waves-effect waves-light chip-default">java</span>
+            </a>
+            
+            
         </div>
     </div>
     
@@ -731,13 +756,13 @@
         <div class="col s12 m8 l8 copy-right">
             本站由&nbsp;&copy;
             <span id="year">2019</span>
-            <a href="http://182.92.128.143" target="_blank">fuxintong</a>
+            <a href="http://182.92.128.143" target="_blank">符忻潼</a>
             |&nbsp;基于&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;的&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">主题搭建</a>
+            |&nbsp;的&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">106</span>&nbsp;字
+                class="white-color">80</span>&nbsp;字
             
             
             
