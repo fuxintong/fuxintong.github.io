@@ -453,10 +453,14 @@
 </li>
 <li><p>进入bin 文件夹下 <code>/usr/java/apache-zookeeper-3.6.0-bin/bin</code></p>
 <pre class=" language-properties"><code class="language-properties"><span class="token comment" spellcheck="true">#启动zookeeper</span>
-<span class="token attr-name">./zkServer.sh</span> <span class="token attr-value">start</span></code></pre>
-<h1 id="查看ZK服务状态"><a href="#查看ZK服务状态" class="headerlink" title="查看ZK服务状态:"></a>查看ZK服务状态:</h1><p>./zkServer.sh status</p>
-<h1 id="停止ZK服务"><a href="#停止ZK服务" class="headerlink" title="停止ZK服务:"></a>停止ZK服务:</h1><p>./zkServer.sh stop<br>#重启ZK服务:<br>./zkServer.sh restart</p>
-<pre><code></code></pre></li>
+<span class="token attr-name">./zkServer.sh</span> <span class="token attr-value">start</span>
+<span class="token comment" spellcheck="true"># 查看ZK服务状态:</span>
+<span class="token attr-name">./zkServer.sh</span> <span class="token attr-value">status</span>
+<span class="token comment" spellcheck="true"># 停止ZK服务:</span>
+<span class="token attr-name">./zkServer.sh</span> <span class="token attr-value">stop</span>
+<span class="token comment" spellcheck="true">#重启ZK服务:     </span>
+<span class="token attr-name">./zkServer.sh</span> <span class="token attr-value">restart</span></code></pre>
+</li>
 <li><p>出现如图所示，表示<strong>zookeeper</strong>启动成功。</p>
 <p>  <img src="http://fuxintongoss.oss-cn-beijing.aliyuncs.com/blog/img/%E6%89%B9%E6%B3%A8%202020-04-04%20214139.png" alt="启动成功"></p>
 </li>
@@ -526,7 +530,7 @@
         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependencies</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>project</span><span class="token punctuation">></span></span></code></pre>
-</li>
+<pre><code></code></pre></li>
 <li><p>创建<code>yml</code>文件</p>
 <pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">server</span><span class="token punctuation">:</span>
   <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">8004</span>
