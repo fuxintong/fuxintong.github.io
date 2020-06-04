@@ -20,11 +20,11 @@
       
         <tags>
             
+            <tag> docker </tag>
+            
             <tag> linux </tag>
             
             <tag> Oracle </tag>
-            
-            <tag> docker </tag>
             
         </tags>
       
@@ -155,7 +155,7 @@
       
         <tags>
             
-            <tag> Linux </tag>
+            <tag> linux </tag>
             
             <tag> java </tag>
             
