@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>使用VUE时报错：You may have an infinite update loop in watcher with expression</title>
+      <link href="/2020/06/11/1610/"/>
+      <url>/2020/06/11/1610/</url>
+      
+        <content type="html"><![CDATA[<p>今天在使用 Vue 开发过程中，前台控制台报了一个警告，经过一番百度，最终解决了问题，过程如下。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;控制台报错信息</span><br><span class="line">vue.runtime.esm.js?2b0e:619 [Vue warn]: You may have an infinite update loop in watcher with expression &quot;value&quot;</span><br></pre></td></tr></table></figure><h2 id="控制台信息"><a href="#控制台信息" class="headerlink" title="控制台信息"></a>控制台信息</h2><ul><li>控制台警告错误如图：<img src="https://img-blog.csdnimg.cn/2020061116314566.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQyNTY5NTcz,size_16,color_FFFFFF,t_70" alt="警告图片"></li></ul><h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><ul><li><p>报错是因为我要给 v-for 里边的一个数组类型的 item 排序，如果是普通的绑定，用计算属性是搞定的。然而，这个牵扯到传参，计算属性用起来就不那么省心了，只能乖乖写个方法。虽然正常渲染，但是报错了：</p><p>经过一番百度，在vue issue 里边找到了尤大神的<a href="https://link.jianshu.com/?t=https://github.com/vuejs/vue/issues/1153" target="_blank" rel="noopener">回复</a>，不能直接用 sort() 函数进行排序。</p></li></ul><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><ol><li>第一种：使用后台进行排序，前端只负责接收，展示。</li><li>第二种：将排序变量放入方法内，定义在局部变量里。</li></ol><p>问题解决。</p><blockquote><p>欢迎微信搜索【Java猿记】，关注回复【面试】获取免费面试资料。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+          <category> Vue </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Vue </tag>
+            
+            <tag> 前端 </tag>
+            
+            <tag> bug </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CentOs7 docker安装Oracle 12c</title>
       <link href="/2020/06/04/1028/"/>
       <url>/2020/06/04/1028/</url>
@@ -20,11 +51,11 @@
       
         <tags>
             
+            <tag> docker </tag>
+            
             <tag> Linux </tag>
             
             <tag> Oracle </tag>
-            
-            <tag> docker </tag>
             
         </tags>
       
