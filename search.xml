@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>记录一次SpringBoot整合OSS依赖时启动报错</title>
+      <link href="/2021/01/24/1700/"/>
+      <url>/2021/01/24/1700/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>SpringBoot 2.3.3 版本整合OSS，将依赖导入后启动报错。</p><h2 id="错误信息如下："><a href="#错误信息如下：" class="headerlink" title="错误信息如下："></a>错误信息如下：</h2><p><strong>APPLICATION FAILED TO START</strong></p><p><strong>Description:</strong></p><p><strong>An attempt was made to call a method that does not exist. The attempt was made from the following location:</strong></p><p><strong>com.alibaba.cloud.context.AliCloudSdk.<init>(AliCloudSdk.java:76)……</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Description:</span><br><span class="line"></span><br><span class="line">An attempt was made to call a method that does not exist. The attempt was made from the following location:</span><br><span class="line"></span><br><span class="line">    com.alibaba.cloud.context.AliCloudSdk.&lt;init&gt;(AliCloudSdk.java:76)</span><br><span class="line"></span><br><span class="line">The following method did not exist:</span><br><span class="line"></span><br><span class="line">    com.aliyuncs.profile.DefaultProfile.getHttpClientConfig()Lcom&#x2F;aliyuncs&#x2F;http&#x2F;HttpClientConfig;</span><br><span class="line"></span><br><span class="line">The method&#39;s class, com.aliyuncs.profile.DefaultProfile, is available from the following locations:</span><br><span class="line"></span><br><span class="line">    jar:file:&#x2F;D:&#x2F;Tools&#x2F;maven&#x2F;com&#x2F;aliyun&#x2F;aliyun-java-sdk-core&#x2F;3.4.0&#x2F;aliyun-java-sdk-core-3.4.0.jar!&#x2F;com&#x2F;aliyuncs&#x2F;profile&#x2F;DefaultProfile.class</span><br><span class="line"></span><br><span class="line">The class hierarchy was loaded from the following locations:</span><br><span class="line"></span><br><span class="line">    com.aliyuncs.profile.DefaultProfile: file:&#x2F;D:&#x2F;Tools&#x2F;maven&#x2F;com&#x2F;aliyun&#x2F;aliyun-java-sdk-core&#x2F;3.4.0&#x2F;aliyun-java-sdk-core-3.4.0.jar</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Action:</span><br><span class="line"></span><br><span class="line">Correct the classpath of your application so that it contains a single, compatible version of com.aliyuncs.profile.DefaultProfile</span><br></pre></td></tr></table></figure><h2 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h2><p><strong>1. 在项目整合阿里云OSS时，使用了官网 <a href="https://github.com/alibaba/aliyun-spring-boot/tree/master/aliyun-spring-boot-samples/aliyun-oss-spring-boot-sample" target="_blank" rel="noopener">GitHub</a> 上的示例，进行整合，就是直接在pom 文件中引入对应的starter</strong> </p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-oss-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><p><strong>2. 当引入后，启动程序发现报如上错误信息，大概意思就是 ==aliyun-java-sdk-core==  jar包 版本与SpringBoot 版本不兼容</strong></p><h2 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h2><p><strong>1. 最后在 <a href="https://maven.aliyun.com/mvn/search" target="_blank" rel="noopener">阿里云的maven仓库</a>找到了个==aliyun-java-sdk-core== 高版本的依赖导入。</strong></p><p><strong>2.pom文件如下</strong></p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--阿里云oss--&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-oss-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!--导入新的依赖--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.aliyun<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>aliyun-java-sdk-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.4.5<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure><blockquote><p>一个在码农道路上孤独行走的人</p><p>微信搜索【Java猿记】</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> bug </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>docker 下Oracle 12C 数据库字符集ZHS16GBK改为AL32UTF8</title>
       <link href="/2020/07/24/1351/"/>
       <url>/2020/07/24/1351/</url>
@@ -78,11 +97,11 @@
       
         <tags>
             
+            <tag> bug </tag>
+            
             <tag> Vue </tag>
             
             <tag> 前端 </tag>
-            
-            <tag> bug </tag>
             
         </tags>
       
@@ -107,11 +126,11 @@
       
         <tags>
             
+            <tag> docker </tag>
+            
             <tag> Linux </tag>
             
             <tag> Oracle </tag>
-            
-            <tag> docker </tag>
             
         </tags>
       
